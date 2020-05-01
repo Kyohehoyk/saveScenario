@@ -1,0 +1,10 @@
+/.settings/
+/target/
+/.project
+/.springBeans
+/pom.xml
+/.classpath
+/src/main/webapp/resources/css/bootstrap/
+/src/main/webapp/resources/image/
+/src/main/webapp/resources/js/bootstrap/
+/src/main/resources/log4j.xml
