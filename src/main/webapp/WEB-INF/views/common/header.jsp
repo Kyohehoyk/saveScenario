@@ -11,14 +11,14 @@
 <link href="<c:url value="/resources/css/bootstrap/bootstrap.css" />"
 	rel="stylesheet">
 <!-- 作成CSS -->
-<link href="<c:url value="/resources/css/header.css" />"
+<link href="<c:url value="/resources/css/scenario/header.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/resources/css/common.css" />"
+<link href="<c:url value="/resources/css/scenario/common.css" />"
 	rel="stylesheet">
 <!-- jqueryのJS読み込み(bootstrap前に行う) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- BootstrapのJS読み込み -->
-	<script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+	<script src="<c:url value="/resources/js/bootstrap/bootstrap.min.js" />"></script>
 <!-- フォント読み込み -->
 <link href="<c:url value="https://fonts.googleapis.com/earlyaccess/kokoro.css" />"
 	rel="stylesheet">
@@ -30,15 +30,19 @@
 	<div id="top-menu">
 		<ul>
 			<li><a href="../scenarioList/">一覧表示</a></li>
-			<li><a href="../scenarioAdd/">登録</a></li>
+			<li><a href="../scenarioAdd/">シナリオ登録</a></li>
 			<c:choose>
 				<c:when test="${empty nickname}">
-					<li><a href="../login/">ログイン</a></li>
-					<li><a href="../userregist/">新規登録</a></li>
+					<li><a href="../userregist/">ユーザ登録</a></li>
+					<div class="div-right">
+						   <li><a href="../login/">ログイン</a></li>
+					</div>
 				</c:when>
 				<c:otherwise>
-					<li><a href="../logout/">ログアウト</a></li>
 					<li><a href="../mypage/">マイページ</a></li>
+					<div class="div-right">
+						<li><a href="../logout/">ログアウト</a></li>
+					</div>
 				</c:otherwise>
 			</c:choose>
 		</ul>

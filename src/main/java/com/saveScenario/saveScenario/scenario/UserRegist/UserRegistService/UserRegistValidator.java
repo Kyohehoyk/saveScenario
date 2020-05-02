@@ -25,6 +25,9 @@ public class UserRegistValidator {
 			if ( this.usersService.selectLoginId(user)!=null) {
 				errMsg = errMsg + "すでにそのIDは使用されています。</br>";
 			}
+			if (!CommonUtil.isEnglishNumber(form.getLoginId())) {
+				errMsg = errMsg + "ログインIDは英数字を入力してください。</br>";
+			}
 			if (form.getPassword().trim().length()<8) {
 				errMsg = errMsg + "パスワードが短すぎます。８文字以上にしてください。</br>";
 			}

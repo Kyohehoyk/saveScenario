@@ -81,7 +81,8 @@ public class ScenarioDetailServiceImpl implements ScenarioDetailService{
 				} else if (CommonInfoUtil.NON_RECOMMENDED_SKILL.equals(siDto.getKind())) {
 					dto.setNonRecommendedSkill(siDto.getContent());
 				}
-			}else if(CommonInfoUtil.SUMMARY.equals(siDto.getKind())) {
+			}
+			if(CommonInfoUtil.SUMMARY.equals(siDto.getKind())) {
 				dto.setSummary(siDto.getContent());
 			} else {
 				dto.setImagePass(siDto.getContent());

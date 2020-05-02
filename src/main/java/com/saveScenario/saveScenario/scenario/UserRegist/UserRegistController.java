@@ -30,7 +30,7 @@ public class UserRegistController {
 	public String init(HttpServletRequest req, Locale locale, Model model) {
 		UserRegistForm form = new UserRegistForm();
 		model.addAttribute("UserRegistForm", form);
-		return "scenario/userregist";
+		return "scenario/userRegist";
 	}
 
 	@RequestMapping(value = "/scenario/userregist/regist", method = RequestMethod.POST)
@@ -39,7 +39,7 @@ public class UserRegistController {
 		if(errMsg.length()!=0) {
 			model.addAttribute("errMsg", errMsg);
 			model.addAttribute("UserRegistForm", form);
-			return "scenario/userregist";
+			return "scenario/userRegist";
 		}
 		UsersDto user = new UsersDto();
 		user.setLoginId(form.getLoginId());

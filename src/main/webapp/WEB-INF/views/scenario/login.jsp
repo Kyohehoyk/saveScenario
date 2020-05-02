@@ -13,7 +13,7 @@
 		<c:if test="${not empty errMsg}">
   			<div id="error">${errMsg}</div>
   		</c:if>
-  		<div class="logincenter">
+  		<div class="center">
   			<div>
 	   			<img src="/saveScenario/resources/image/loginIcon.png" width="250" height="200"/>
   			</div>

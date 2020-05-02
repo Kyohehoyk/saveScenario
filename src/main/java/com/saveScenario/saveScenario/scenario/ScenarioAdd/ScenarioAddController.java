@@ -58,8 +58,8 @@ public class ScenarioAddController {
 		} else {
 			form.setRegister(userId);
 			this.scenarioAddService.regist(form);
+			model.addAttribute("msg", "✅シナリオの登録が完了しました。");
 		}
-		form = new ScenarioAddForm();
 		List<SystemInfosDto> system =  this.scenarioAddService.getSystem();
 		model.addAttribute("ScenarioLAddForm", form);
 		model.addAttribute("System", system);

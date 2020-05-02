@@ -2,6 +2,7 @@ package com.saveScenario.saveScenario.scenario.Util;
 
 import java.util.List;
 import java.util.function.Supplier;
+import java.util.regex.Pattern;
 
 public class CommonUtil {
 	public static boolean isNullOrEmpty (String value) {
@@ -34,6 +35,41 @@ public class CommonUtil {
 			}
 		}
 		return CommonInfoUtil.BLANK;
+	}
+
+	public static boolean isInteger (String value) {
+		if (value == null || value.contentEquals(CommonInfoUtil.BLANK)) {
+			return false;
+		}
+		try {
+			Integer.valueOf(value);
+		} catch (Exception e){
+			return false;
+		}
+		return true;
+	}
+
+	public static boolean isFloat (String value) {
+		if (value == null || value.contentEquals(CommonInfoUtil.BLANK)) {
+			return false;
+		}
+		try {
+			Float.valueOf(value);
+		} catch (Exception e){
+			return false;
+		}
+		return true;
+	}
+
+	public static boolean isEnglishNumber(String value) {
+		if (value == null || value.contentEquals(CommonInfoUtil.BLANK)) {
+			return false;
+		}
+		if (Pattern.matches("^[0-9a-zA-Z]+$", value)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 

@@ -34,13 +34,32 @@
 	 <c:forEach items="${ScenarioListForm}" var="formLine">
  		<div class="col-lg-3 offset-md-1 stone">
 	 		<c:out value="${formLine.title}" /><br>
-	 		製作者<c:out value="${formLine.creater}" /><br>
-	 		システム<br>
-	 		募集人数<br>
-	 		登録者<br>
+	 		製作者：<c:out value="${formLine.creater}" /><br>
+	 		システム：<c:out value="${formLine.systemName}" /><br>
+	 		募集人数：<c:out value="${formLine.participant}" /><br>
+	 		想定時間：<c:out value="${formLine.estimatedTime}" /><br>
 	 		<a href="<c:url value="../scenarioDetail/${formLine.id}"></c:url>" class="btn stretched-link"></a>
  		</div>
  	</c:forEach>
+</div>
+<div class="pagination">
+<p class="center">
+	<c:if test="${nowPage != 1}">
+		<c:if test="${1 != beforePage}">
+			<a href="<c:url value="../scenarioList/1"></c:url>">1</a>
+			...
+		</c:if>
+		<a href="<c:url value="../scenarioList/${beforePage}"></c:url>"></a>
+	</c:if>
+	${nowPage}
+	<c:if test="${nowPage != lastPage}">
+		<a href="<c:url value="../scenarioList/${afterPage}"></c:url>">></a>
+		<c:if test="${afterPage != lastPage}">
+			...
+			<a href="<c:url value="../scenarioList/${lastPage}"></c:url>">${lastPage}</a>
+		</c:if>
+	</c:if>
+</p>
 </div>
 </div>
 </body>

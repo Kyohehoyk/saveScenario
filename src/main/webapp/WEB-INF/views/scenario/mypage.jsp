@@ -9,7 +9,7 @@
 <jsp:include page="../common/header.jsp"/>
 <div id="contents">
 	<p>登録したシナリオ</p>
-	<table class="scenario-list">
+	<table class="scenario-list border">
 		<tr><th>タイトル</th><th>作者</th><th>システム</th>
 		<c:forEach items="${ScenarioRegistForm}" var="RegistLine">
 			<tr>
@@ -22,7 +22,7 @@
 		</c:forEach>
 	</table>
 	<p>通過したシナリオ</p>
-	<table class="scenario-list">
+	<table class="scenario-list border">
 		<tr><th>タイトル</th><th>作者</th><th>システム</th></tr>
 		<c:forEach items="${PassForm}" var="PassForm">
 			<tr>
@@ -35,7 +35,7 @@
 		</c:forEach>
 	</table>
 	<p>応募中のシナリオ</p>
-	<table class="scenario-list">
+	<table class="scenario-list border" >
 		<tr><th>タイトル</th><th>作者</th><th>システム</th><th>募集人数</th><th>登録者</th></tr>
 		<c:forEach items="${SubscriptionForm}" var="subscriptionForm">
 			<tr>

@@ -18,8 +18,18 @@ public class ScenarioAddForm {
 	/** 参加人数 */
 	public String participant;
 
+	/** 参加人数 */
+	public String participantStart;
+	/** 参加人数 */
+	public String participantEnd;
+
 	/** 想定時間 */
 	public String estimatedTime;
+
+	/** 想定時間 */
+	public String estimatedTimeStart;
+	/** 想定時間 */
+	public String estimatedTimeEnd;
 
 	/** 更新時刻 */
 	public Timestamp updateTime;

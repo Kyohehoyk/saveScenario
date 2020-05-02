@@ -1,0 +1,32 @@
+#top-menu ul {
+	padding-right:50px;
+}
+
+#top-menu ul {
+	list-style-type : none;
+}
+#header {
+	background-color:#336B87;
+	color:#fff;
+	height:93px;
+}
+
+#top-menu a {
+	float : left;
+	width : 100px;
+	text-decoration: none;
+	color:#fff;
+	text-align: center;
+}
+
+#top-menu a:hover{
+	background-color:#538BA7;
+	color:#fff;
+	height:29px;
+}
+
+#contents{
+	padding-top:10px;
+	padding-left:50px;
+	padding-right:50px;
+}

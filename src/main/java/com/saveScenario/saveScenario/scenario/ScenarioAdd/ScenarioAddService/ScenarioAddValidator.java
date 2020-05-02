@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 
 import com.saveScenario.saveScenario.scenario.ScenarioAdd.ScenarioAddForm;
+import com.saveScenario.saveScenario.scenario.Util.CommonUtil;
 import com.saveScenario.saveScenario.scenario.table.Lists.DbDto.ListsDto;
 import com.saveScenario.saveScenario.scenario.table.Lists.service.ListsServiceImpl;
 
@@ -29,6 +30,33 @@ public class ScenarioAddValidator {
 			errMsg = errMsg + "そのシナリオは登録済みです。<br>";
 		}
 
+		// タイトルが未入力の場合
+		if (form.getCreater().length() == 0) {
+			errMsg = errMsg + "製作者を入力してください。<br>";
+		}
+
+		//参加人数のチェック
+		if (form.getParticipantStart().length() != 0) {
+			if(!CommonUtil.isInteger(form.getParticipantStart())){
+				errMsg = errMsg + "参加人数は整数を入力してください。<br>";
+			}
+		}
+		if (form.getParticipantEnd().length() != 0) {
+			if(!CommonUtil.isInteger(form.getParticipantEnd())){
+				errMsg = errMsg + "参加人数は整数を入力してください。<br>";
+			}
+		}
+		//想定時間のチェック
+		if (form.getEstimatedTimeStart().length() != 0) {
+			if(!CommonUtil.isFloat(form.getEstimatedTimeStart())){
+				errMsg = errMsg + "想定時間は数値を入力してください。<br>";
+			}
+		}
+		if (form.getEstimatedTimeEnd().length() != 0) {
+			if(!CommonUtil.isFloat(form.getEstimatedTimeEnd())){
+				errMsg = errMsg + "想定時間は数値を入力してください。<br>";
+			}
+		}
 		// システムが未選択の場合
 		if (form.getSystemInfo() == 0) {
 			errMsg = errMsg + "システムを選択してください。<br>";
