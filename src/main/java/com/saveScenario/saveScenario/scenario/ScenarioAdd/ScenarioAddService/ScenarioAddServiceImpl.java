@@ -28,6 +28,7 @@ public class ScenarioAddServiceImpl implements ScenarioAddService{
 	public void regist(ScenarioAddForm form) {
 		ListsDto ListsDto = new ListsDto();
 		CopyUtil.copyProperty(ListsDto, form);
+		ListsDto.setDisplay(1);
 		this.listsService.insert(ListsDto);
 
 	}

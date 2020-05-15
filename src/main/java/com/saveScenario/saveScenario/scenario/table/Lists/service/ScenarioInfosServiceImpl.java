@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.saveScenario.saveScenario.scenario.Util.CommonInfoUtil;
 import com.saveScenario.saveScenario.scenario.Util.CommonUtil;
 import com.saveScenario.saveScenario.scenario.Util.DbUtil;
 import com.saveScenario.saveScenario.scenario.table.Lists.DbDto.ScenarioInfosDto;
@@ -30,10 +31,10 @@ public class ScenarioInfosServiceImpl implements ScenarioInfosService{
 			String where = "";
 			List<String> setValue = new ArrayList<String>();
 			if (scenarioDto != null) {
-				where = where + CommonUtil.setDataSQL(()->scenarioDto.getId().toString(), "id", setValue);
-				where = where + CommonUtil.setDataSQL(()->scenarioDto.getSessionId().toString(), "sessionId", setValue);
-				where = where + CommonUtil.setDataSQL(()->scenarioDto.getKind().toString(), "kind", setValue);
-				where = where + CommonUtil.setDataSQL(()->scenarioDto.getContent(), "content", setValue);
+				where = where + CommonUtil.setDataSQL(()->scenarioDto.getId().toString(), "id", setValue, CommonInfoUtil.notUpdate);
+				where = where + CommonUtil.setDataSQL(()->scenarioDto.getSessionId().toString(), "sessionId", setValue, CommonInfoUtil.notUpdate);
+				where = where + CommonUtil.setDataSQL(()->scenarioDto.getKind().toString(), "kind", setValue, CommonInfoUtil.notUpdate);
+				where = where + CommonUtil.setDataSQL(()->scenarioDto.getContent(), "content", setValue, CommonInfoUtil.notUpdate);
 			}
 			sql = sql + where;
 

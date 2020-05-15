@@ -9,5 +9,5 @@ public interface ScenarioEditService {
 	void init(ScenarioEditDto scenarioEditDto);
 	void update(ScenarioEditDto scenarioEditDto);
 	void delite(Integer sessionId);
-
+	void restoration(Integer sessionId);
 }

@@ -28,6 +28,9 @@ public class ScenarioEditForm {
 	/** 更新時刻 */
 	public Timestamp updateTime;
 
+	/** 表示制御 */
+	public Integer display;
+
 	/** ニックネーム */
 	public String nickname;
 

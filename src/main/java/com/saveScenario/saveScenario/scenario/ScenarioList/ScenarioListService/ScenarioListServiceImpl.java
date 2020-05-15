@@ -26,7 +26,9 @@ public class ScenarioListServiceImpl implements ScenarioListService{
 	@Override
 	public List<ScenarioListDto> selectList() {
 		List<ScenarioListDto> dto = new ArrayList<ScenarioListDto>();
-		List<ListsDto> list = this.listsService.Select(null);
+		ListsDto cond = new ListsDto();
+		cond.setDisplay(1);
+		List<ListsDto> list = this.listsService.Select(cond);
 		CopyUtil.copyProperties(dto, list, ScenarioListDto.class);
 
 		for(ScenarioListDto System:dto) {

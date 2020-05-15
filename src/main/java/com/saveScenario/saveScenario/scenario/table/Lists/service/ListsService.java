@@ -10,4 +10,5 @@ import com.saveScenario.saveScenario.scenario.table.Lists.DbDto.ListsDto;
 public interface ListsService {
 	List<ListsDto> Select(ListsDto dto);
 	void insert(ListsDto form);
+	void update(ListsDto update, ListsDto cond);
 }
