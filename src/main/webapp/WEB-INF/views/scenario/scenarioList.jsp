@@ -52,7 +52,7 @@
 		<a href="<c:url value="../scenarioList/${beforePage}"></c:url>"></a>
 	</c:if>
 	${nowPage}
-	<c:if test="${nowPage != lastPage}">
+	<c:if test="${nowPage != lastPage && lastPage > 0}">
 		<a href="<c:url value="../scenarioList/${afterPage}"></c:url>">></a>
 		<c:if test="${afterPage != lastPage}">
 			...

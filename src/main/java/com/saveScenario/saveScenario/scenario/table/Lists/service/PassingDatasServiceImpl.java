@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.saveScenario.saveScenario.scenario.Util.CommonInfoUtil;
 import com.saveScenario.saveScenario.scenario.Util.CommonUtil;
 import com.saveScenario.saveScenario.scenario.Util.DbUtil;
 import com.saveScenario.saveScenario.scenario.table.Lists.DbDto.PassingDatasDto;
@@ -29,10 +30,10 @@ public class PassingDatasServiceImpl implements PassingDatasService{
 			String where = "";
 			List<String> setValue = new ArrayList<String>();
 			if (passDto != null) {
-				where = where + CommonUtil.setDataSQL(()->passDto.getId().toString(), "id", setValue);
-				where = where + CommonUtil.setDataSQL(()->passDto.getSessionId().toString(), "sessionId", setValue);
-				where = where + CommonUtil.setDataSQL(()->passDto.getPlayer().toString(), "player", setValue);
-				where = where + CommonUtil.setDataSQL(()->passDto.getPassing().toString(), "participant", setValue);
+				where = where + CommonUtil.setDataSQL(()->passDto.getId().toString(), "id", setValue, CommonInfoUtil.notUpdate);
+				where = where + CommonUtil.setDataSQL(()->passDto.getSessionId().toString(), "sessionId", setValue, CommonInfoUtil.notUpdate);
+				where = where + CommonUtil.setDataSQL(()->passDto.getPlayer().toString(), "player", setValue, CommonInfoUtil.notUpdate);
+				where = where + CommonUtil.setDataSQL(()->passDto.getPassing().toString(), "participant", setValue, CommonInfoUtil.notUpdate);
 			}
 			sql = sql + where;
 			ps = con.prepareStatement(sql);

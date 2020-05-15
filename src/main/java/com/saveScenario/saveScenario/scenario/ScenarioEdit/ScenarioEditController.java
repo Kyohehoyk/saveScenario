@@ -43,9 +43,13 @@ public class ScenarioEditController {
 		return "scenario/scenarioEdit";
 	}
 
-	@RequestMapping(value = "/scenario/delite/{sessionId}", method = RequestMethod.GET)
-	public String delite(HttpServletRequest req, Locale locale, Model model, @PathVariable("sessionId") String sessionId) {
-		this.scenarioEditService.delite(Integer.parseInt(sessionId));
+	@RequestMapping(value = "/scenario/scenarioEdit/delite", method = RequestMethod.POST)
+	public String delite(HttpServletRequest req, Locale locale, Model model, @Validated ScenarioEditForm inputForm) {
+		if (inputForm.getDisplay() == 1) {
+			this.scenarioEditService.delite(inputForm.getSessionId());
+		} else {
+			this.scenarioEditService.restoration(inputForm.getSessionId());
+		}
 		return "redirect:../scenarioList/";
 	}
 

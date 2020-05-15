@@ -121,7 +121,7 @@ public class ScenarioEditServiceImpl implements ScenarioEditService {
 		}
 	}
 
-	public void insertOrUpdateScenarioInfos(String kind, String content, Integer sessionId) {
+	private void insertOrUpdateScenarioInfos(String kind, String content, Integer sessionId) {
 		if (CommonUtil.isNullOrEmpty(content)) {
 			return;
 		}
@@ -138,7 +138,23 @@ public class ScenarioEditServiceImpl implements ScenarioEditService {
 		}
 	}
 
+	@Override
 	public void delite(Integer sessionId) {
+		// シナリオ検索
+		ListsDto cond = new ListsDto();
+		cond.setId(sessionId);
+		ListsDto update = new ListsDto();
+		update.setDisplay(-1);
+		this.listsService.update(update, cond);
+	}
 
+	@Override
+	public void restoration(Integer sessionId) {
+		// シナリオ検索
+		ListsDto cond = new ListsDto();
+		cond.setId(sessionId);
+		ListsDto update = new ListsDto();
+		update.setDisplay(1);
+		this.listsService.update(update, cond);
 	}
 }

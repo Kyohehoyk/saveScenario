@@ -11,4 +11,7 @@ public class CommonInfoUtil {
 	public final static String SESSION_NICKNAME = "nickname";
 	public final static String SESSION_USERID = "userid";
 
+	public final static boolean isUpdate = true;
+	public final static boolean notUpdate = false;
+
 }

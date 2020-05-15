@@ -14,12 +14,12 @@
   	</c:if>
 	<c:if test="${ScenarioDetailForm.register!=userId}">
 		<form:form method="post" action="../request/${ScenarioDetailForm.sessionId}" modelAttribute="ScenarioDetailForm">
-			<input type="submit" value="応募" />
+			<button type="submit" class="btn btn-primary">応募</button>
 		</form:form>
 	</c:if>
 	<c:if test="${ScenarioDetailForm.register==userId}">
 		<form:form method="get" action="../scenarioEdit/${ScenarioDetailForm.sessionId}" modelAttribute="ScenarioDetailForm">
-			<input type="submit" value="編集" />
+			<button type="submit" class="btn btn-primary">編集</button>
 		</form:form>
 	</c:if>
 	<h2><c:out value="${ScenarioDetailForm.title}" /></h2>

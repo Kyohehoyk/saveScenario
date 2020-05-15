@@ -34,6 +34,6 @@ public class ListsDto {
 	/**  システム */
 	public Integer systemInfo;
 
-	/**  表示設定 */
+	/**  表示設定(1:表示 -1:非表示) */
 	public Integer display;
 }

@@ -19,22 +19,28 @@ public class CommonUtil {
 		return false;
 	}
 
-	public static String setDataSQL (Supplier<String> supplier, String column, List<String> set) {
+	public static String setDataSQL (Supplier<String> supplier, String column, List<String> set, boolean isUpdate) {
 		String value = CommonInfoUtil.BLANK;
+		String rtn = CommonInfoUtil.BLANK;
 		try {
 			value = supplier.get();
 		} catch (Exception e) {
-			return CommonInfoUtil.BLANK;
+			return rtn;
 		}
 		if (value != null && value.length() != 0) {
-			set.add(value);
-			if (set.size() > 0 ) {
-				return " where " + column + " = ? ";
+			if (set.size() == 0 ) {
+				if (isUpdate) {
+					rtn = " set " + column + " = ? ";
+				} else {
+					rtn = " where " + column + " = ? ";
+				}
+				set.add(value);
 			} else {
-				return " and " + column + " = ? ";
+				rtn = " and " + column + " = ? ";
+				set.add(value);
 			}
 		}
-		return CommonInfoUtil.BLANK;
+		return rtn;
 	}
 
 	public static boolean isInteger (String value) {

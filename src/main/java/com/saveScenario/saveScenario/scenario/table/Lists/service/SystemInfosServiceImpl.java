@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.saveScenario.saveScenario.scenario.Util.CommonInfoUtil;
 import com.saveScenario.saveScenario.scenario.Util.CommonUtil;
 import com.saveScenario.saveScenario.scenario.Util.DbUtil;
 import com.saveScenario.saveScenario.scenario.table.Lists.DbDto.SystemInfosDto;
@@ -30,8 +31,8 @@ public class SystemInfosServiceImpl implements SystemInfosService{
 			String where = "";
 			List<String> setValue = new ArrayList<String>();
 			if (dto != null) {
-				where = where + CommonUtil.setDataSQL(()->dto.getId().toString(), "id", setValue);
-				where = where + CommonUtil.setDataSQL(()->dto.getSystemInfo().toString(), "systemInfo", setValue);
+				where = where + CommonUtil.setDataSQL(()->dto.getId().toString(), "id", setValue, CommonInfoUtil.notUpdate);
+				where = where + CommonUtil.setDataSQL(()->dto.getSystemInfo().toString(), "systemInfo", setValue, CommonInfoUtil.notUpdate);
 			}
 			sql = sql + where;
 

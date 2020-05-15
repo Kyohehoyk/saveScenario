@@ -68,6 +68,11 @@ body {
   float: right;
 }
 
+.div-left{
+  float: left;
+}
+
+
 .red{
   color: red;
 }

@@ -9,8 +9,9 @@
 <body>
 <jsp:include page="../common/header.jsp"/>
 <div id="contents">
+<div class="div-left">
 <form:form method="post" action="update" modelAttribute="ScenarioEditForm">
-	<h2><c:out value="${ScenarioEditForm.title}" />　<input type="submit" value="シナリオ削除" /></h2>
+	<h2><c:out value="${ScenarioEditForm.title}" /></h2>
 	<form:hidden path="sessionId" value="${ScenarioEditForm.id}"></form:hidden>
 	製作者：${ScenarioEditForm.creater}<br>
 	システム：${ScenarioEditForm.systemName}<br>
@@ -38,8 +39,22 @@
 		<form:hidden path="joinParticipant[${joinParticipant.no}].nickname" value="${joinParticipant.nickname}"></form:hidden>
 
 	</c:forEach>
-	<input type="submit" value="保存" />
+	<div class="div-left"><button type="submit" class="btn btn-primary">保存</button></div>
 </form:form>
+</div>
+<div class="div-left">
+	<form:form method="post" action="delite" modelAttribute="ScenarioEditForm">
+		<c:if test="${ScenarioEditForm.display==1}">
+			<button type="submit" class="btn btn-primary">シナリオ非表示</button>
+		</c:if>
+		<c:if test="${ScenarioEditForm.display!=1}">
+			<button type="submit" class="btn btn-primary">シナリオ再表示</button>
+		</c:if>
+		<form:hidden path="display" value="${ScenarioEditForm.display}"></form:hidden>
+		<form:hidden path="sessionId" value="${ScenarioEditForm.sessionId}"></form:hidden>
+	</form:form>
+</div>
+
 </div>
 </body>
 </html>
