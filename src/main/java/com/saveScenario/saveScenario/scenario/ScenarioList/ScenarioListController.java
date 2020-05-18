@@ -42,7 +42,7 @@ public class ScenarioListController {
 		}
 		int max = (id - 1) * PAZE_SIZE + PAZE_SIZE;
 		if (dto.size() < max) {         max = dto.size();      }
-		dto = dto.subList(min, max);
+		//dto = dto.subList(min, max);
 		List<ScenarioListForm> form = new ArrayList<ScenarioListForm>();
 		CopyUtil.copyProperties(form, dto, ScenarioListForm.class);
 
@@ -72,7 +72,7 @@ public class ScenarioListController {
 			++lastPage;      }
 		int max = PAZE_SIZE;
 		if (dto.size() < max) {         max = dto.size();      }
-		dto = dto.subList(0, max);
+		//dto = dto.subList(0, max);
 		List<ScenarioListForm> form = new ArrayList<ScenarioListForm>();
 		CopyUtil.copyProperties(form, dto, ScenarioListForm.class);
 
